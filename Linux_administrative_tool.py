@@ -17,8 +17,13 @@ if __name__ == '__main__':
         print('(3) MOSTRAR PROCESSOS CORRENTES DO SISTEMA')
         print('''(4) NETSTAT -> Mostrar os sockets abertos em um servidor,
                bem como tabelas de roteamento e informacoes de interfaces.''')
-        print('(5) EXIT')
-        opcao = int(input('Digite numero da opcao: '))
+        print('(5) NMAP - (“Network Mapper”) ')
+        print('(6) EXIT')
+        try:
+            opcao = int(input('Digite numero da opcao: '))
+        except:
+            print('[!] Necessario informar uma opcao! EXEMPLO: 01')
+            sys.exit('Saindo por falta de opcao!')
         def user_conectados():
             if opcao == 1:
                 print('(+) Usuarios Conectados no momento!')
@@ -40,7 +45,11 @@ if __name__ == '__main__':
                 print('(05) ps -u  -> Mostra o usuario que iniciou o processo.')
                 print('(06) ps -x  -> Mostra processos associados a um terminal')
                 print('(07) ps -ef -> Mostra todos os processos juntos com os nao associados, com saida formatada.')
-                opcao_ps = input('Digite o numero da opcao: Exemplo: 01 ')
+                try:
+                    opcao_ps = input('Digite o numero da opcao: Exemplo: 01 ')
+                except:
+                    print('[!] Necessario informar uma opcao! EXEMPLO: 01')
+                    sys.exit('Saindo por falta de opcao!')
                 if opcao_ps == '01':
                     print('Processos correntes')
                     os.system('ps') #Mostra os processos correntes do sistema operacional.
@@ -112,8 +121,18 @@ if __name__ == '__main__':
                     os.system('netstat -ntlup') #Extra
         netstat2()
 
-        def sair():
+        def nmap_scan():
             if opcao == 5:
+                print('Técnicas de verificação básica: ')
+                print('(01) Scan um objetivo                   ->  nmap [target]')
+                print('(02) Scan de múltiplos objetivos        ->  nmap [target1,target2,etc]')
+                print('(03) Scan em uma lista de objetivos     –>  nmap-IL [list.txt]')
+                print('(04) Scan uma variedade de hospedeiros  –>  nmap [range of IP addresses]')
+                print('(05) Realizar uma exploração agressiva  –>  nmap -A [target]')
+        nmap_scan()
+
+        def sair():
+            if opcao == 6:
                 sys.exit('Saindo do programa')
         sair()
 
