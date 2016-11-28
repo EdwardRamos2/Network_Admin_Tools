@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 #Auto: Edward Ramos
 #Date: 11/27/2016
-#GNU/Linux administrative tool Version v2.0
-import os , sys
+#GNU/Linux administrative tool Version v2.1
+import os , sys , subprocess
 try:
     import nmap
 except:
@@ -27,12 +27,14 @@ if __name__ == '__main__':
         def user_conectados():
             if opcao == 1:
                 print('(+) Usuarios Conectados no momento!')
-                os.system('who') #Who -> Mostra user conectados no momento em que o comando e executado
+                usuarios = subprocess.call(['who']) #Who -> Mostra user conectados no momento em que o comando e executado
+                print(usuarios)
         user_conectados()
         def lastlog1():
             if opcao == 2:
                 print('Logins bem-sucedidos no sistema!')
-                os.system('lastlog') #Mostra os logins bem-sucedidos no sistema operacional
+                logins_sucedidos = subprocess.call(['who'])
+                print(logins_sucedidos) #Mostra os logins bem-sucedidos no sistema operacional
         lastlog1()
         def mostrarprocessos():
             if opcao == 3:
@@ -52,26 +54,32 @@ if __name__ == '__main__':
                     sys.exit('Saindo por falta de opcao!')
                 if opcao_ps == '01':
                     print('Processos correntes')
-                    os.system('ps') #Mostra os processos correntes do sistema operacional.
+                    ps_pro = subprocess.call(['ps'])
+                    print(ps_pro) #Mostra os processos correntes do sistema operacional.
                 elif opcao_ps == '02':
                     print('Mostrando todos os processos, inclusive os nao associados a um terminal.')
-                    os.system('ps -e') #Mostra todos os processos, inclusive os nao associados a um terminal (daemon).
+                    ps_pro1 = subprocess.call(['ps', '-e']) #Mostra todos os processos, inclusive os nao associados a um terminal (daemon).
+                    print(ps_pro1)
                 elif opcao_ps == '03':
                     print('Mostrando saida formatada, com todos os atributos dos processos')
-                    os.system('ps -f') #Formata a saida com todos os atributos dos processos.
+                    ps_pro2 = subprocess.call(['ps','-f'])
+                    print(ps_pro2) #Formata a saida com todos os atributos dos processos.
                 elif opcao_ps == '04':
                     print('Mostrando todos os processos.')
-                    os.system('ps -a') #Mostra todos os processos.
+                    ps_pro3 = subprocess.call(['ps','-a']) #Mostra todos os processos.
+                    print(ps_pro3)
                 elif opcao_ps == '05':
                     print('Mostrando o usuario que iniciou o processo.')
-                    os.system('ps -u') #Mostra o usuario que iniciou o processo.
+                    ps_pro4 = subprocess.call(['ps','-u']) #Mostra o usuario que iniciou o processo.
+                    print(ps_pro4)
                 elif opcao_ps == '06':
                     print('Mostrando todos os processos associados a um terminal.')
-                    os.system('ps -x') #Mostra todos os processos associados a um terminal.
+                    ps_pro5 = subprocess.call(['ps','x']) #Mostra todos os processos associados a um terminal.
+                    print(ps_pro5)
                 elif opcao_ps == '07':
                     print('Mostrando todos os processos juntos com os nao associados, com saida formatada.')
-                    os.system('ps -ef') #Mostra todos os processos juntos com os nao associados, com saida formatada.
-
+                    ps_pro6 = subprocess.call(['ps','-ef']) #Mostra todos os processos juntos com os nao associados, com saida formatada.
+                    print(ps_pro6)
         mostrarprocessos()
         def netstat2():
             if opcao == 4:
@@ -94,35 +102,44 @@ if __name__ == '__main__':
                     sys.exit('Saindo por falta de opcao!')
                 if opcao_netstat == '01':
                     print('(01) netstat  -> Mostrando sockets abertos, tabelas de roteamentos e informacoes de interfaces.')
-                    os.system('netstat') #NETSTAT -> Mostrar os sockets abertos em um servidor,
-                                         #bem como tabelas de roteamento e informacoes de interfaces.
+                    net_pro1 = subprocess.call(['netstat']) #NETSTAT -> Mostrar os sockets abertos em um servidor,
+                    print(net_pro1)                     #bem como tabelas de roteamento e informacoes de interfaces.
                 elif opcao_netstat == '02':
                     print('(+) Mostrando tabelas de roteamento do kernel.')
-                    os.system('netstat -r') #netstat -r   -> Mostra tabelas de roteamentos do kernel
+                    net_pro2 = subprocess.call(['netstat','-r']) #netstat -r   -> Mostra tabelas de roteamentos do kernel
+                    print(net_pro2)
                 elif opcao_netstat == '03':
                     print('(+) Mostrando todas interfaces de rede do servidor')
-                    os.system('netstat -i') #Mostra todas as interfaces de rede do servidor.
+                    net_pro3 = subprocess.call(['netstat','-i']) #Mostra todas as interfaces de rede do servidor.
+                    print(net_pro3)
                 elif opcao_netstat == '04':
                     print('Mostrando estatisticas para cada protocolo de rede.')
-                    os.system('netstat -s') #Mostra estatisticas para cada protocolo de rede.
+                    net_pro4 = subprocess.call(['netstat','-s']) #Mostra estatisticas para cada protocolo de rede.
+                    print(net_pro4)
                 elif opcao_netstat == '05':
                     print('Mostrando sockets em modo listening (portas abertas)')
-                    os.system('netstat -l') #Mostra sockets em modo listenig(portas abertas)
+                    net_pro5 = subprocess.call(['netstat','-l']) #Mostra sockets em modo listenig(portas abertas)
+                    print(net_pro5)
                 elif opcao_netstat == '06':
                     print('Mostrando todas as conexoes TCP.')
-                    os.system('netstat -t') #Mostra todas as conexoes TCP
+                    net_pro6 = subprocess.call(['netstat','-t']) #Mostra todas as conexoes TCP
+                    print(net_pro6)
                 elif opcao_netstat == '07':
                     print('Mostrando toda as conexoes UDP.')
-                    os.system('netstat -u') #Mostra toda as conexoes UDP
+                    net_pro7 = subprocess.call(['netstat','-u']) #Mostra toda as conexoes UDP
+                    print(net_pro7)
                 elif opcao_netstat == '08':
                     print('Mostrando o processo que abriu a conexao.')
-                    os.system('netstat -p') #Mostra o processo que abriu a conexao
+                    net_pro8 = subprocess.call(['netstat','-p']) #Mostra o processo que abriu a conexao
+                    print(net_pro8)
                 elif opcao_netstat == '09':
                     print('Nao faz resolucao de DNS nas conexoes.')
-                    os.system('netstat -n') #Nao faz resolucao DNS nas conexoes
+                    net_pro9 = subprocess.call(['netstat','-n'])  #Nao faz resolucao DNS nas conexoes
+                    print(net_pro9)
                 elif opcao_netstat == '10':
                     print('Extra')
-                    os.system('netstat -ntlup') #Extra
+                    net_pro10 = subprocess.call(['netstat','-ntlup']) #Extra
+                    print(net_pro10)
         netstat2()
 
         def nmap_scan():
