@@ -77,6 +77,7 @@ if __name__ == '__main__':
                 print('(07) netstat -u   -> Mostra todas as oonexoes UDP.')
                 print('(08) netstat -p   -> Mostra o processo que abriu a conexao.')
                 print('(09) netstat -n   -> Nao faz resolucao de DNS nas conexoes.')
+                print('(10) netstat -ntlup -> Extra')
                 opcao_netstat = input('Digite o numero da opcao: Exemplo > 01:  ')
                 if opcao_netstat == '01':
                     print('(01) netstat  -> Mostrando sockets abertos, tabelas de roteamentos e informacoes de interfaces.')
@@ -105,8 +106,10 @@ if __name__ == '__main__':
                     os.system('netstat -p') #Mostra o processo que abriu a conexao
                 elif opcao_netstat == '09':
                     print('Nao faz resolucao de DNS nas conexoes.')
-                    if __name__ == '__main__':
-                        os.system('netstat -n') #Nao faz resolucao DNS nas conexoes
+                    os.system('netstat -n') #Nao faz resolucao DNS nas conexoes
+                elif opcao_netstat == '10':
+                    print('Extra')
+                    os.system('netstat -ntlup') #Extra
         netstat2()
 
         def sair():
