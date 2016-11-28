@@ -87,7 +87,11 @@ if __name__ == '__main__':
                 print('(08) netstat -p   -> Mostra o processo que abriu a conexao.')
                 print('(09) netstat -n   -> Nao faz resolucao de DNS nas conexoes.')
                 print('(10) netstat -ntlup -> Extra')
-                opcao_netstat = input('Digite o numero da opcao: Exemplo > 01:  ')
+                try:
+                    opcao_netstat = input('Digite o numero da opcao: Exemplo > 01:  ')
+                except:
+                    print('[!] Necessario informar uma opcao! EXEMPLO: 01')
+                    sys.exit('Saindo por falta de opcao!')
                 if opcao_netstat == '01':
                     print('(01) netstat  -> Mostrando sockets abertos, tabelas de roteamentos e informacoes de interfaces.')
                     os.system('netstat') #NETSTAT -> Mostrar os sockets abertos em um servidor,
