@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#Auto: Edward Ramos
+#Autor: Edward Ramos
 #Date: 11/27/2016
 #GNU/Linux administrative tool Version v2.2
 import os , sys , subprocess
@@ -7,7 +7,6 @@ try:
     import nmap
 except:
     sys.exit('[!] Install the nmap library: pip install python-nmap')
-
 if __name__ == '__main__':
     def MENU(): #MENU
         while True:
@@ -17,7 +16,6 @@ if __name__ == '__main__':
             print("| |\  |  __/ |_ \ V  V / (_) | |  |   <  / ___ \ (_| | | | | | | | | | |")
             print("|_| \_|\___|\__| \_/\_/ \___/|_|  |_|\_\/_/   \_\__,_|_| |_| |_|_|_| |_|")
             print("                                                                        ")
-
             print('\033[42;1;33m'+'(+) ManguePy_Admin_Redes v2.2\n'+ '\033[0;0m')
             print('---------------Escolha a opcao desejada!---------------------\n')
             print('\033[1;31m'+'(1) MOSTRAR USUARIOS CONECTADOS NO MOMENTO'+'\033[0;0m')
@@ -37,13 +35,11 @@ if __name__ == '__main__':
                     print('(+) Usuarios Conectados no momento!')
                     usuarios = subprocess.call(['who']) #Who -> Mostra user conectados no momento em que o comando e executado
                     print(usuarios)
-            user_conectados()
             def lastlog1():
                 if opcao == 2:
                     print('Logins bem-sucedidos no sistema!')
                     logins_sucedidos = subprocess.call(['who'])
                     print(logins_sucedidos) #Mostra os logins bem-sucedidos no sistema operacional
-            lastlog1()
             def mostrarprocessos():
                 if opcao == 3:
                     print('(+) Processos correntes do sistema!')
@@ -88,7 +84,6 @@ if __name__ == '__main__':
                         print('Mostrando todos os processos juntos com os nao associados, com saida formatada.')
                         ps_pro6 = subprocess.call(['ps','-ef']) #Mostra todos os processos juntos com os nao associados, com saida formatada.
                         print(ps_pro6)
-            mostrarprocessos()
             def netstat2():
                 if opcao == 4:
                     print('(+) NETSTAT')
@@ -148,8 +143,6 @@ if __name__ == '__main__':
                         print('Extra')
                         net_pro10 = subprocess.call(['netstat','-ntlup']) #Extra
                         print(net_pro10)
-            netstat2()
-
             def nmap_scan():
                 if opcao == 5:
                     print('Técnicas de verificação básica: ')
@@ -158,11 +151,13 @@ if __name__ == '__main__':
                     print('(03) Scan em uma lista de objetivos     –>  nmap-IL [list.txt]')
                     print('(04) Scan uma variedade de hospedeiros  –>  nmap [range of IP addresses]')
                     print('(05) Realizar uma exploração agressiva  –>  nmap -A [target]')
-            nmap_scan()
-
             def sair():
                 if opcao == 6:
                     sys.exit('Saindo do programa')
             sair()
-
+            user_conectados()
+            lastlog1()
+            mostrarprocessos()
+            netstat2()
+            nmap_scan()
     MENU()
