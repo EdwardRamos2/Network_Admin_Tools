@@ -7,6 +7,8 @@ try:
     import nmap
 except:
     sys.exit('[!] Install the nmap library: pip install python-nmap')
+print(sys.version) # parentheses needed > python 3. 
+print(sys.version_info)
 if __name__ == '__main__':
     def MENU(): #MENU
         while True:
