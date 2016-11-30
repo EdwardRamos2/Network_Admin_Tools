@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-#Autor: Edward Ramos
+#Autor: Edward Ramos   <edward.ramos@linuxmail.org>
 #Date: 11/27/2016
 #GNU/Linux administrative tool Version v2.2
+
 import os , sys , subprocess
 try:
     import nmap
